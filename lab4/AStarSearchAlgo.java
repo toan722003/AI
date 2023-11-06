@@ -27,11 +27,11 @@ public class AStarSearchAlgo implements IInformedSearchAlgo {
 			for (Edge e : edges) {
 				Node node = e.getEnd();
 				if (!frontier.contains(node) && !explored.contains(node)) {
-					node.setG((currentNode.getG() - currentNode.getH()) + e.getWeight() + node.getH());
+					node.setG(((currentNode.getG() - currentNode.getH()) + e.getWeight() + node.getH()));
 					node.setParent(currentNode);
 					frontier.add(node);
 				} else if (node.getG() > ((currentNode.getG() - currentNode.getH()) + e.getWeight() + node.getH())) {
-					node.setG(((currentNode.getG() - currentNode.getH()) + e.getWeight() + node.getH()));
+					node.setG((currentNode.getG() + e.getWeight() + node.getH()));
 					node.setParent(currentNode);
 				}
 			}
@@ -49,8 +49,8 @@ public class AStarSearchAlgo implements IInformedSearchAlgo {
 		while (!frontier.isEmpty()) {
 			Node currentNode = frontier.poll();
 			if (currentNode.getLabel().equals(goal) && explored.contains(new Node(start))) {
-				return currentNode;}
-			else if (currentNode.getLabel().equals(start)) {
+				return currentNode;
+			} else if (currentNode.getLabel().equals(start)) {
 				currentNode.setParent(null);
 				currentNode.setG(currentNode.getH());
 				frontier.clear();

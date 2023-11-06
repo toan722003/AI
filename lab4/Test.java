@@ -21,13 +21,13 @@ public class Test {
 		nodeE.addEdge(nodeG, 2);
 		nodeF.addEdge(nodeG, 1);
 //		IInformedSearchAlgo iInformedSearchAlgo = new GreedyBestFirstSearchAlgo();
-//		IInformedSearchAlgo iInformedSearchAlgo = new AStarSearchAlgo();
-		Task3 task3 = new Task3();
+		IInformedSearchAlgo iInformedSearchAlgo = new AStarSearchAlgo();
+//		Task3 task3 = new Task3();
 //		Node result = iInformedSearchAlgo.execute(nodeS, "G");
 //		Node result = iInformedSearchAlgo.execute(nodeS, "E", "G");
-//		Node result = iInformedSearchAlgo.execute(nodeS, "G");
+		Node result = iInformedSearchAlgo.execute(nodeS, "G");
 //		Node result = iInformedSearchAlgo.execute(nodeS, "B", "G");
-//		System.out.println(NodeUtils.printPath(result));
-		System.out.println(task3.isAdmissibleH(nodeS, "G"));
+		System.out.println(NodeUtils.printPath(result));
+//		System.out.println(task3.isAdmissibleH(nodeS, "G"));
 	}
 }
